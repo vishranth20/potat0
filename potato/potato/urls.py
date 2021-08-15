@@ -30,5 +30,5 @@ urlpatterns = [path('',views.index,name='index'),
             path('profile',views.profile,name='profile'),
             path('dishes',views.dishes,name='dishes'),
             path('hotels/<str:destination>',views.hotels,name='hotels'),
-            
+            path()
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
