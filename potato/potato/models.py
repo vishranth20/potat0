@@ -21,3 +21,11 @@ class Hotels(models.Model):
     offers=models.BooleanField()
     def __str__(self):
         return self.name
+
+class Dishes(models.Model):
+    name=models.CharField(max_length=100, null=False)
+    image=models.ImageField()
+    likes=models.IntegerField()
+    price=models.FloatField()
+    def __str__(self):
+        return self.name

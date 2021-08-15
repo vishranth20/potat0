@@ -3,3 +3,4 @@ from .models import *
 
 admin.site.register(Destination)
 admin.site.register(Hotels)
+admin.site.register(Dishes)
