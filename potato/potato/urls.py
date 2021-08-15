@@ -25,10 +25,12 @@ from django.conf.urls.static import static
 
 
 
-urlpatterns = [path('',views.index,name='index'),
+urlpatterns = [
+            path('',views.index,name='index'),
             path('admin/', admin.site.urls),
             path('profile',views.profile,name='profile'),
             path('dishes',views.dishes,name='dishes'),
+            path('logout',views.logoutUser,name='logout'),
             path('hotels/<str:destination>',views.hotels,name='hotels'),
-            path()
+            path('login',views.loginPage,name='login')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

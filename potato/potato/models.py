@@ -22,7 +22,9 @@ class Hotels(models.Model):
     def __str__(self):
         return self.name
 
+
 class Dishes(models.Model):
+    hotel=models.ManyToManyField(Hotels)
     name=models.CharField(max_length=100, null=False)
     image=models.ImageField()
     likes=models.IntegerField()

@@ -19,6 +19,8 @@
 	<link rel="stylesheet" type="text/css" href="{%static 'styles/responsive.css' %}">
 
 
+
+
 </head>
 
 <body>
@@ -34,22 +36,22 @@
 					<div class="col">
 						<div class="header_content d-flex flex-row align-items-center justify-content-start">
 							<div class="header_content_inner d-flex flex-row align-items-end justify-content-start">
-								<div class="logo"><a href=""potato.html>POTATO</a></div>
+								<div class="logo"><a href="/">POTATO</a></div>
 								<nav class="main_nav">
 									<ul class="d-flex flex-row align-items-start justify-content-start">
 										<li class="active"><a href="/">Home</a></li>
-										<li><a href="contact.html">Contact</a></li>
+										<li><a href="contact.html">Contact</a></li> 
 										{% if user.is_authenticated %}
 										<li><a href="profile">Profile</a></li>
-										<li><a href="logout">Logout</a></li>
+										<li><a href="accounts/logout">Logout</a></li>
 									</ul>
 								</nav>
-								<div class="header_phone ml-auto">Hello, {{request.user}}</div>
+								<div class="header_phone ml-auto">Hello, {{user.first_name}}</div>
 										{% else %}
 								<nav class="main_nav">
 										<ul class="d-flex flex-row align-items-start justify-content-start">	
-										<li><a href="register">Register</a></li>
-										<li><a href="login">Login</a></li>
+										<li><a href="accounts/register">Register</a></li>
+										<li><a href="accounts/login">Login</a></li>
 										{% endif %}										
 									</ul>
 								</nav>
@@ -96,15 +98,15 @@
 	
 						{% if user.is_authenticated %}
 						<li><a href="profile">Profile</a></li>
-						<li><a href="logout">Logout</a></li>
+						<li><a href="accounts/logout">Logout</a></li>
 					</ul>
 					<ul class="d-flex flex-row align-items-start justify-content-start">
-					<div class="menu_phone ml-auto">Hello, {{request.user}}</div>
+					<div class="menu_phone ml-auto">Hello, {{user.first_name}}</div>
 					</ul>	
 						{% else %}
 					<ul>
-						<li><a href="register">Register</a></li>
-						<li><a href="login">Login</a></li>
+						<li><a href="accounts/register">Register</a></li>
+						<li><a href="accounts/login">Login</a></li>
 						{% endif %}	
 					</ul>
 			</div>
@@ -293,7 +295,7 @@
 					<div class="col text-center">
 						<div class="section_subtitle">simply amazing places</div>
 						<div class="section_title">
-							<h2>Popular Destinations</h2>
+							<h2>Popular Hotels</h2>
 						</div>
 					</div>
 				</div>
@@ -301,21 +303,20 @@
 					<div class="col">
 						<div class="destinations_container item_grid">
 							
-							{% for dest in data %}
+							{% for Hotels in data %}
 							<!-- Destination -->
 							<div class="destination item">
 								<div class="destination_image">
-									<img src="{{dest.destinations.image.url}}" alt="">
-									{% if dest.destinations.offer %}
+									<img src="{{Hotels.hotels.image.url}}" alt="">
+									{% if Hotels.hotels.offer %}
 									<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
 									{% endif %}
 								</div>
 								<div class="destination_content">
-									<div class="destination_title"><a href="/hotels/{{dest.destinations.name}}">{{dest.destinations.name}}</a></div>
+									<div class="destination_title"><a href="/">{{Hotels.hotels.name}}</a></div>
 									<div class="destination_subtitle">
-										<p>{{dest.destinations.description}}</p>
+										<p>{{Hotels.hotels.description}}</p>
 									</div>
-									<!-- <div class="destination_price">From ₹{{dest.price}}</div> -->
 								</div>
 							</div>
 
@@ -356,7 +357,6 @@
 					<div class="col-xl-8">
 						<div class="news_container">
 
-							<!-- News Post -->
 							<div
 								class="news_post d-flex flex-md-row flex-column align-items-start justify-content-start">
 								<div class="news_post_image"><img src="{% static 'images/top.jpg' %}" alt=""></div>
@@ -403,13 +403,12 @@
 
 						</div>
 					</div>
-
-
 				</div>
 			</div>
 		</div>
 
 			<div class="col text-center">
+
 			</div>
 		</footer>
 	</div>

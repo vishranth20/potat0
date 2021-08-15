@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import *
+from django.http import *
+from django.contrib.auth import authenticate, login, logout
 from .models import *
 # Create your views here.
 def profile(request):
@@ -27,3 +29,22 @@ def hotels(request, destination):
         data.append(x)
     print(data)
     return render(request,'hotels.html', {'data':data})
+
+def logoutUser(request):
+    logout(request)
+    return redirect('/')
+
+def loginPage(request):
+    if request.method == 'POST':
+
+        if 'submit' in request.POST:
+            username =request.POST['username']
+            password =request.POST['password']
+            user = authenticate(request,username=username,password=password)
+            if user is not None:
+                login(request,user)
+                return redirect('/')
+            else:
+                return HttpResponse('Wrong username or password')
+    else:
+        return render(request, 'login.html')
