@@ -21,6 +21,7 @@ def dish(request, destination,hotel):
     return render(request,'food.html', {'data':data})
 
 def index(request):
+
     dest=Destination.objects.filter().all()
     data=[]
     for i in dest:
@@ -80,4 +81,8 @@ def register(request):
         context={'form':form}
         return render(request,'register.html',context)
 
-            
+def pay(request):
+        return render(request,'pay.html')
+        
+def scam(request):
+        return render(request,'scam.html')
