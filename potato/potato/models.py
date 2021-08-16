@@ -27,7 +27,9 @@ class Dishes(models.Model):
     hotel=models.ManyToManyField(Hotels)
     name=models.CharField(max_length=100, null=False)
     image=models.ImageField()
+    description=models.TextField()
+    offer=models.BooleanField(default=False)
     likes=models.IntegerField()
     price=models.FloatField()
     def __str__(self):
-        return self.name
+        return self.name  

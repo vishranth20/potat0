@@ -303,19 +303,20 @@
 					<div class="col">
 						<div class="destinations_container item_grid">
 							
-							{% for Hotels in data %}
+							{% for dish in data %}
 							<!-- Destination -->
 							<div class="destination item">
 								<div class="destination_image">
-									<img src="{{Hotels.hotels.image.url}}" alt="">
-									{% if Hotels.hotels.offer %}
+									<img src="{{dish.dish.image.url}}" alt="">
+									{% if dish.dish.offer %} 
 									<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
 									{% endif %}
 								</div>
 								<div class="destination_content">
-									<div class="destination_title"><a href="/">{{Hotels.hotels.name}}</a></div>
+									<div class="destination_title">{{dish.dish.name}}</div>
 									<div class="destination_subtitle">
-										<p>{{Hotels.hotels.description}}</p>
+										<p>{{dish.dish.description}}</p>
+										<li>₹{{dish.dish.price}}</li>
 									</div>
 								</div>
 							</div>

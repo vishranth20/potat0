@@ -309,11 +309,11 @@
 								<div class="destination_image">
 									<img src="{{Hotels.hotels.image.url}}" alt="">
 									{% if Hotels.hotels.offer %}
-									<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
+									<div class="spec_offer text-center"><a href="/hotels/{{Hotels.city}}/{{Hotels.hotels.name}}">Special Offer</a></div>
 									{% endif %}
 								</div>
 								<div class="destination_content">
-									<div class="destination_title"><a href="/">{{Hotels.hotels.name}}</a></div>
+									<div class="destination_title"><a href="/hotels/{{Hotels.city}}/{{Hotels.hotels.name}}">{{Hotels.hotels.name}}</a></div>
 									<div class="destination_subtitle">
 										<p>{{Hotels.hotels.description}}</p>
 									</div>

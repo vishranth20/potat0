@@ -19,7 +19,6 @@ from django.urls import path
 from . import views
 from django.contrib import admin
 from django.urls import path
-
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -29,8 +28,9 @@ urlpatterns = [
             path('',views.index,name='index'),
             path('admin/', admin.site.urls),
             path('profile',views.profile,name='profile'),
-            path('dishes',views.dishes,name='dishes'),
             path('logout',views.logoutUser,name='logout'),
             path('hotels/<str:destination>',views.hotels,name='hotels'),
-            path('login',views.loginPage,name='login')
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+            path('login',views.loginPage,name='login'),
+            path('hotels/<str:destination>/<str:hotel>',views.dish,name='hotels'),
+            path("register", views.register, name="register")
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  
