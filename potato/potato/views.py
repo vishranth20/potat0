@@ -86,3 +86,6 @@ def pay(request):
         
 def scam(request):
         return render(request,'scam.html')
+
+def about(request):
+    return render(request,'about.html')
