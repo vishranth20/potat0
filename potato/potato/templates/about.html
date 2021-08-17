@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% block content %}
+	{% for posts in posts %}
+		<article class="media content-section">
+		  <div class="media-body">
+		    <div class="article-metadata">
+		      <small class="text-muted">{{ posts.Post }}</small>
+		      <small class="text-muted">{{ posts.Company }}</small>
+		    </div>
+		    <h1><a class="article-title" href="#">{{ posts.Name }}</a></h1>
+		    <p class="article-content">{{ posts.School }}</p>
+		  </div>
+		</article>
+	{% endfor %}
+{% endblock content %}
