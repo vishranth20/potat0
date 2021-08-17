@@ -46,7 +46,7 @@
 										<li><a href="accounts/logout">Logout</a></li>
 									</ul>
 								</nav>
-								<div class="header_phone ml-auto">Hello, {{user.first_name}}</div>
+								<div class="header_phone ml-auto">Hello, {{request.user}}</div>
 										{% else %}
 								<nav class="main_nav">
 										<ul class="d-flex flex-row align-items-start justify-content-start">	
@@ -101,7 +101,7 @@
 						<li><a href="accounts/logout">Logout</a></li>
 					</ul>
 					<ul class="d-flex flex-row align-items-start justify-content-start">
-					<div class="menu_phone ml-auto">Hello, {{user.first_name}}</div>
+					<div class="menu_phone ml-auto">Hello, {{request.user}}</div>
 					</ul>	
 						{% else %}
 					<ul>
