@@ -15,7 +15,7 @@ def dish(request, destination,hotel):
     data=[]
     for i in dishes:
         print(i)
-        x=dict(city=city,hotel=hotels,dish= dict(name=i.name, likes=i.likes, offer= i.offer,description= i.description,image= i.image, price= i.price))
+        x=dict(city=city,hotel=hotels,dish= dict(id= i.id,name=i.name, likes=i.likes, offer= i.offer,description= i.description,image= i.image, price= i.price))
         data.append(x)
     print(data)
     return render(request,'food.html', {'data':data})
@@ -88,4 +88,31 @@ def scam(request):
         return render(request,'scam.html')
 
 def about(request):
-    return render(request,'about.html')
+    posts =[
+        {
+                'Name': 'Vishranth',
+                'Post': 'CEO',
+                'School': 'Saraswathi vidyalaya',
+                'Company': 'of POTATO food app'
+        },
+        {
+                'Name': 'Pranesh',
+                'Post': 'Chairman',
+                'School': 'Saraswathi vidyalaya',
+                'Company': 'of POTATO food app'
+        },
+
+        {
+                'Name': 'Deepak',
+                'Post': 'Manager',
+                'School': 'Saraswathi vidyalaya',
+                'Company': 'of POTATO food app'
+        }
+]
+    return render(request,'about.html',{"posts":posts})
+
+def addtocart(request,productid):
+    if request.user.is_authenticated:
+        product=Dishes.objects.get(id=productid)
+        cart= addToCart.objects.add(product= product)
+        return HttpResponse("Added To Cart")

@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.auth.models import User
 from django.conf import *
+from django.http import request
 from django.utils.timezone import datetime
 
 class Destination(models.Model):
@@ -33,3 +34,10 @@ class Dishes(models.Model):
     price=models.FloatField()
     def __str__(self):
         return self.name  
+
+class addToCart(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,related_name="postUser",on_delete=models.CASCADE, default= request.user)
+    product= models.ManyToManyField(Dishes)
+    
+    def __str__(self):
+        return str(self.user.username)+' - '+str(self.product)
