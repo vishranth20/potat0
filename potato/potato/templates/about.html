@@ -1,4 +1,12 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body style="background-color:aquamarine;">
 
 	{% for posts in posts %}
 		<article class="media content-section">
@@ -7,8 +15,11 @@
 		      <small class="text-muted">{{ posts.Post }}</small>
 		      <small class="text-muted">{{ posts.Company }}</small>
 		    </div>
-		    <h1><a class="article-title" href="#">{{ posts.Name }}</a></h1>
+		    <h1><a class="article-title" href="#" style="font-size: 50px;">{{ posts.Name }}</a></h1>
 		    <p class="article-content">{{ posts.School }}</p>
 		  </div>
 		</article>
 	{% endfor %}
+
+</body>
+</html>

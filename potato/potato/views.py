@@ -114,5 +114,6 @@ def about(request):
 def addtocart(request,productid):
     if request.user.is_authenticated:
         product=Dishes.objects.get(id=productid)
-        cart= addToCart.objects.add(product= product)
+        cart= addToCart.objects.add(user=request.user,
+                                    product= product)
         return HttpResponse("Added To Cart")
