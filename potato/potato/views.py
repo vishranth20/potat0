@@ -113,7 +113,18 @@ def about(request):
 
 def addtocart(request,productid):
     if request.user.is_authenticated:
-        product=Dishes.objects.get(id=productid)
-        cart= addToCart.objects.add(user=request.user,
-                                    product= product)
-        return HttpResponse("Added To Cart")
+        if addToCart.objects.filter(user=request.user).exists():
+
+            cart= addToCart.objects.get(user=request.user)
+            products=Dishes.objects.get(id=productid)
+
+            cart.product.add(products)
+            return render(request,"pay.html")
+
+        else:
+            product=Dishes.objects.get(id=productid)
+            
+            cart= addToCart.objects.create(user=request.user)
+            cart.product.add(product)
+            
+            return render(request,"pay.html")
