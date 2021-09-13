@@ -21,6 +21,7 @@ urlpatterns = [
             path('login',views.loginPage,name='login'),
             path('about', views.about, name='about'),
             path('hotels/<str:destination>/<str:hotel>',views.dish,name='hotels'),
-            path("register", views.register, name="register")
+            path("register", views.register, name="register"),
+            path("addtocart", views.addtocart_display, name="display")
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

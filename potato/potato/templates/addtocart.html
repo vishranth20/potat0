@@ -41,8 +41,6 @@
 									<ul class="d-flex flex-row align-items-start justify-content-start">
 										<li class="active"><a href="/">Home</a></li>
 										<li><a href="/about">About</a></li>
-										<li><a href="/addtocart">Add to Cart</a></li>
-
 										{% if user.is_authenticated %}
 										<li><a href="profile">Profile</a></li>
 										<li><a href="accounts/logout">Logout</a></li>
@@ -97,6 +95,7 @@
 					<ul>
 						<li><a href="/">Home</a></li>
 						<li><a href="/about">About</a></li>
+						<li><a href="/addtocart">ADD TO CART</a></li>
 	
 						{% if user.is_authenticated %}
 						<li><a href="profile">Profile</a></li>
@@ -104,6 +103,7 @@
 					</ul>
 					<ul class="d-flex flex-row align-items-start justify-content-start">
 					<div class="menu_phone ml-auto">Hello, {{request.user}}</div>
+					<div href="/addtocart" class="menu_phone ml-auto">ADD TO CART</div>
 					</ul>	
 						{% else %}
 					<ul>
@@ -276,27 +276,28 @@
 					<div class="col">
 						<div class="destinations_container item_grid">
 							
-							{% for dish in data %}
+							{% for i in data %}
 							<!-- Destination -->
 							<div class="destination item">
 								<div class="destination_image">
-									<img src="{{dish.dish.image.url}}" alt="">
+									<img src="{{i.Product_image.url}}" alt="">
 									{% if dish.dish.offer %} 
 									<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
 									{% endif %}
 								</div>
 								<div class="destination_content">
-									<div class="destination_title">{{dish.dish.name}}</div>
+									<div class="destination_title">{{i.Product_name}}</div>
 									<div class="destination_subtitle">
 										<p>{{dish.dish.description}}</p>
-										<li>₹{{dish.dish.price}}</li>
-										<button onclick="window.location.href='/addtocart/{{dish.dish.id}}'"class="float-right btn btn-light border btn-sm">Add to Cart</button>
+										<li>₹{{i.Product_price}}</li>
 									</div>
 								</div>
 							</div>
 
 							{% endfor %}
 							</div>
+							<button onclick="window.location.href='/pay'"class="float-right btn btn-light border btn-sm">BUY</button>
+
 						</div>
 					</div>
 				</div>

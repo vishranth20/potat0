@@ -119,8 +119,7 @@ def addtocart(request,productid):
             products=Dishes.objects.get(id=productid)
 
             cart.product.add(products)
-            return render(request,"pay.html")
-
+            return HttpResponse(status=204)
         else:
             product=Dishes.objects.get(id=productid)
             
@@ -128,3 +127,17 @@ def addtocart(request,productid):
             cart.product.add(product)
             
             return render(request,"pay.html")
+
+def addtocart_display(request):
+    if request.method=="POST":
+        return HttpResponse("POST")
+    else:
+        cart=addToCart.objects.get(user=request.user)
+    add=[]
+    for i in cart.product.all():
+        print(i)
+
+        usercart= {'Product_name':i.name, 'Product_id': i.id,'Product_price': i.price, 'Product_image': i.image}
+        print(i)
+        add.append(usercart)
+    return render(request,"addtocart.html",{'data':add})
