@@ -33,12 +33,21 @@ def index(request):
 
 def hotels(request, destination):
     city= Destination.objects.get(name=destination)
+    print(destination)
+    banner = []
+    if destination == 'Chennai':
+            banner = ['https://cdn.discordapp.com/attachments/782108008053604353/932225255622201415/4883007.png','https://cdn.discordapp.com/attachments/782108008053604353/932225365924020254/Basera-indian-Cuisine-In-Plano.png','https://cdn.discordapp.com/attachments/782108008053604353/932225493875429406/18f57eee6880cc86544dd4bba55fb9fb.png']
+    elif destination == 'Dehli':
+            banner = ["https://cdn.discordapp.com/attachments/782108008053604353/932225648070651934/GettyImages-579154550_1-73e0815d601b.png","https://cdn.discordapp.com/attachments/782108008053604353/932225781105582110/b75c88369e1763169d4a2a29a2d7587c.png","https://cdn.discordapp.com/attachments/782108008053604353/932226335621914655/1739009.jpg"]
+    elif destination == 'Mumbai':
+            banner = ["https://cdn.discordapp.com/attachments/782108008053604353/932226480434458684/df.png","https://cdn.discordapp.com/attachments/782108008053604353/932226614568300574/1316965.png","https://cdn.discordapp.com/attachments/782108008053604353/932226770361548831/maxresdefault.png"]
     hotels=Hotels.objects.filter(destination=city).all()
-    data=[]
+    hots = []
     for i in hotels:
         print(i)
-        x=dict(city=city,hotels= dict(name=i.name, description=i.description, image= i.image, offer= i.offers, likes= i.likes))
-        data.append(x)
+        x=dict(name=i.name, description=i.description, image= i.image, offer= i.offers, likes= i.likes)
+        hots .append(x)
+    data={'cityname':city.name,'cityimg':banner,'hotels':hots}
     print(data)
     return render(request,'hotels.html', {'data':data})
 
