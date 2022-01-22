@@ -37,7 +37,7 @@ def hotels(request, destination):
     banner = []
     if destination == 'Chennai':
             banner = ['https://cdn.discordapp.com/attachments/782108008053604353/932225255622201415/4883007.png','https://cdn.discordapp.com/attachments/782108008053604353/932225365924020254/Basera-indian-Cuisine-In-Plano.png','https://cdn.discordapp.com/attachments/782108008053604353/932225493875429406/18f57eee6880cc86544dd4bba55fb9fb.png']
-    elif destination == 'Dehli':
+    elif destination == 'Delhi':
             banner = ["https://cdn.discordapp.com/attachments/782108008053604353/932225648070651934/GettyImages-579154550_1-73e0815d601b.png","https://cdn.discordapp.com/attachments/782108008053604353/932225781105582110/b75c88369e1763169d4a2a29a2d7587c.png","https://cdn.discordapp.com/attachments/782108008053604353/932226335621914655/1739009.jpg"]
     elif destination == 'Mumbai':
             banner = ["https://cdn.discordapp.com/attachments/782108008053604353/932226480434458684/df.png","https://cdn.discordapp.com/attachments/782108008053604353/932226614568300574/1316965.png","https://cdn.discordapp.com/attachments/782108008053604353/932226770361548831/maxresdefault.png"]
