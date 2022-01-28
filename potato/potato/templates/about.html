@@ -1,25 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-<body style="background-color:aquamarine;">
+<style>.cont{display: flex;
+    flex-direction: row;
+    justify-content: space-between;}.one{display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-content: space-around;}.two{width:40%;}</style>
+<body style="background-image: url(https://cdn.discordapp.com/attachments/853256439929110568/936595072345055252/unknown.png);">
+<div class="cont">
 
-	{% for posts in posts %}
-		<article class="media content-section">
-		  <div class="media-body">
-		    <div class="article-metadata">
-		      <small class="text-muted">{{ posts.Post }}</small>
-		      <small class="text-muted">{{ posts.Company }}</small>
-		    </div>
-		    <h1><a class="article-title" href="#" style="font-size: 50px;">{{ posts.Name }}</a></h1>
-		    <p class="article-content">{{ posts.School }}</p>
-		  </div>
-		</article>
-	{% endfor %}
-
+<div class="two">
+    {% for posts in posts %}
+        <article class="media content-section">
+          <div class="media-body">
+            <h1 style="color: azure;">--------------------</h1>
+            <h1 style="font-size: 30px; color: azure;">{{ posts.Name }}</h1>
+            <small class="text-muted" style="font-size: 25px; color: azure;" ">{{ posts.Post }}</small>
+            <small class="text-muted" style="color: azure;">{{ posts.Company }}</small>
+            <p class="article-content" style="color: azure;">{{ posts.School }}</p>
+          </div>
+        </article>
+    {% endfor %}
+    <h1 style="font-size: 25px; color: azure;"">--------------------</h1>
+</div>
+<div class = "one">
+    <img style='height: 350px; width: 450px; ;' src='https://cdn.discordapp.com/attachments/867643999077793813/935523195447017553/Picsart_22-01-25_18-44-49-500.jpg'>
+    <img style='height: 350px; width: 450px; ;' src='https://cdn.discordapp.com/attachments/867643999077793813/935524072345972796/Picsart_22-01-25_18-48-19-500.jpg'>
+    <img style='height: 300px; width: 450px; ;' src='https://cdn.discordapp.com/attachments/782108008053604353/935531407193804830/62lsyn.png'>
+    <img style='height: 300px; width: 450px; ;' src='https://cdn.discordapp.com/attachments/867643999077793813/935534178575999116/Picsart_22-01-25_19-28-28-665.jpg'>
+</div>
+</div>
 </body>
 </html>

@@ -99,21 +99,21 @@ def scam(request):
 def about(request):
     posts =[
         {
-                'Name': 'Vishranth',
+                'Name': 'Vishranth',  
                 'Post': 'CEO',
                 'School': 'Saraswathi vidyalaya',
                 'Company': 'of POTATO food app'
         },
         {
                 'Name': 'Pranesh',
-                'Post': 'Chairman',
+                'Post': 'COO',
                 'School': 'Saraswathi vidyalaya',
                 'Company': 'of POTATO food app'
         },
 
         {
                 'Name': 'Deepak',
-                'Post': 'Manager',
+                'Post': 'MANAGER',
                 'School': 'Saraswathi vidyalaya',
                 'Company': 'of POTATO food app'
         }
