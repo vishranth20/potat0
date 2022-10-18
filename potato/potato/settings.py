@@ -77,9 +77,9 @@ WSGI_APPLICATION = 'potato.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'potato',
+        'NAME': 'potat0',
         'USER': 'root',
-        'PASSWORD':'password',
+        'PASSWORD':'valimai',
         'HOST':'localhost',
         'PORT':'3306',
     }
